@@ -30,11 +30,11 @@ for i, mensagem in enumerate(contato_df['Mensagem']):
     try:
         pessoa = contato_df.loc[i, "Pessoa"]
         numero = contato_df.loc[i, "Numero"]
-        texto = urllib.parse.quote(f"Salve {pessoa}! tranquilo? \n {mensagem}")
+        texto = urllib.parse.quote(f"Olá {pessoa}! Na paz? \n {mensagem}")
         #abre a conversa
         link = f"https://web.whatsapp.com/send?phone={numero}&text={texto}"
         navegador.get(link)
-        wait = WebDriverWait(navegador, 80)
+        wait = WebDriverWait(navegador, 60)
         if Mensagens_enviadas == 0:
             time.sleep(30)
         else:
