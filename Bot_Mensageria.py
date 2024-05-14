@@ -72,32 +72,23 @@ for i, mensagem in enumerate(contato_df['Mensagem']):
         link = f"https://web.whatsapp.com/send?phone={numero}&text={texto}"
         navegador.get(link)
         wait = WebDriverWait(navegador, 60)
-        #if Mensagens_enviadas == 0:
-        #    time.sleep(30)
-        #else:
-        #    time.sleep(20)
         #aguarda terminar de carregar a conversa // risco de timeout
         wait.until(EC.invisibility_of_element_located((By.XPATH, "//div[contains(text(), 'Iniciando conversa')]")))
         time.sleep(10)
         navegador.find_element("xpath", '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div/div/div').click()
-        time.sleep(5)
+        time.sleep(3)
         attach = navegador.find_element("xpath", '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div/div/span/div/ul/div/div[2]/li')#.send_keys(midia)
         attach.click()
-        time.sleep(5)
+        time.sleep(3)
         keyboard = Controller()
         keyboard.type(file_path)
         keyboard.press(Key.enter)
         keyboard.release(Key.enter)
-       # time.sleep(1)
-        #attach.send_keys("teste.png")
-        time.sleep(5)
+        time.sleep(3)
         send = navegador.find_element("xpath", '//*[@id="app"]/div/div[2]/div[2]/div[2]/span/div/span/div/div/div[2]/div/div[2]/div[2]/div/div')
         send.click()
-        #envia a mensagem
-        #elemento_mensagem = navegador.elemento = navegador.find_element("xpath", '//*[@id="app"]/div/div[2]/div[2]/div[2]/span/div/span/div/div/div[2]/div/div[2]/div[2]/div/div')
-        #elemento_mensagem.click()
         #aguarda
-        time.sleep(5)
+        time.sleep(3)
         Mensagens_enviadas = Mensagens_enviadas + 1
 
     except (TimeoutException, NoSuchElementException) as e:
