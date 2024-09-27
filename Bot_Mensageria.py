@@ -79,18 +79,18 @@ for i, mensagem in enumerate(contato_df['Mensagem']):
         time.sleep(5)
         attach = navegador.find_element("xpath", '//*[@id="main"]/footer/div[1]/div/span[2]/div/div[1]/div/div/span/div/ul/div/div[2]/li')#.send_keys(midia)
         attach.click()
-        time.sleep(10)
+        time.sleep(15)
         keyboard = Controller()
         keyboard.type(file_path)
         keyboard.press(Key.enter)
-        time.sleep(5)
+        time.sleep(10)
         keyboard.press(Key.enter)
         time.sleep(20)
         #send = 
         #navegador.find_element("xpath", '//*[@id="app"]/div/div[2]/div[2]/div[2]/span/div/span/div/div/div[2]/div/div[2]/div[2]/div/div').click()
         #send.click()
         #aguarda
-        time.sleep(5)
+        time.sleep(20)
         Mensagens_enviadas = Mensagens_enviadas + 1
 
     except (TimeoutException, NoSuchElementException) as e:
